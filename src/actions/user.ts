@@ -18,7 +18,7 @@ export async function createUserInDB({
   stripeId,
 }: CreateUserInput): Promise<User> {
 
-  const existingUser = await prisma.user.findUnique({
+  const existingUser = await prisma.user.findFirst({
     where: { clerkId },
   });
 

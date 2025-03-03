@@ -53,32 +53,6 @@ export async function POST(req: Request) {
       });
       console.log("✅ User stored in database successfully.");
     }
-    //   // Store user in database //commented out v2
-    //   await prisma.user.create({
-    //     data: {
-    //       fullname: `${userData.first_name} ${userData.last_name }`,
-    //       clerkId: userData.id,
-    //       type: "user", 
-    //       stripeId: "", 
-    //     },
-    //   });
-
-    //   console.log("✅ User stored in database successfully.");
-    // }
-
-
-      //   const newUser = await createUserInDB({ //commented out v1
-      //     fullname: `${userData.first_name} ${userData.last_name}`,
-      //     clerkId: userData.id,
-      //     type: "user",
-      //     stripeId: "", 
-      // });
-
-      // if (newUser) {
-      //   console.log("✅ User stored in database successfully.");
-      // } else {
-      //   console.log("⚠️ User could not be saved.");
-      // }
     
     // Always return a response
     return NextResponse.json({ success: true });

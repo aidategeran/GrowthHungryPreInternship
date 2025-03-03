@@ -1,25 +1,18 @@
 "use client";
-
-import { useEffect } from "react";
-import { useAuth } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
-import { SignIn } from "@clerk/nextjs";
+import { SignIn } from '@clerk/nextjs'
+import { useEffect } from 'react'
+import { useAuth } from '@clerk/nextjs'
+import { useRouter } from 'next/navigation'
 
 export default function SignInPage() {
-  const { isSignedIn, isLoaded } = useAuth();
-
-  const router = useRouter();
+  const { isLoaded, isSignedIn } = useAuth()
+  const router = useRouter()
 
   useEffect(() => {
-
     if (isLoaded && isSignedIn) {
-      router.replace("/dashboard"); // Use `replace` to prevent back navigation
+      router.replace('/dashboard')
     }
-  }, [isSignedIn, isLoaded, router]);
+  }, [isLoaded, isSignedIn, router])
 
-  if (!isLoaded) return <p>Loading...</p>; // Prevent flickering
-
-  if (isSignedIn) return null; // Prevent SignIn component from rendering
-
-  return <SignIn afterSignInUrl="/dashboard" />;
+  return <SignIn />
 }
